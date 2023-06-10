@@ -29,6 +29,14 @@ fn main() {
     match_switch();
     get_direction(Direction::Left);
     create_person();
+    use_fn();
+    tuples();
+    expression();
+
+    let string_value: String = String::from("This is actual");
+    test_ownership(&string_value);
+    test_ownership(&string_value);
+
 }
 
 fn second_method() {
@@ -104,7 +112,7 @@ fn struct_exmp() {
     };
 
     let tall = my_box.height;
-    println!("{tall_}", tall_=tall)
+    println!("{tall_}", tall_ = tall)
 }
 
 struct Person {
@@ -137,4 +145,49 @@ fn create_person() {
     );
 
     struct_exmp();
+}
+
+// 11/06/2023
+fn sub(a: i32, b: i32) -> i32 {
+    return a - b;
+}
+
+fn use_fn() {
+    let a: i32 = 10;
+    let b: i32 = 5;
+
+    let ans: i32 = sub(a, b);
+    println!("The sub of 10 and 5 is :{answer}", answer = ans)
+}
+
+fn tuples() {
+    let person_details: (&str, &str, i32, &str) = ("Shashi", "skujur871@gmail.com", 29, "Male");
+    let (name, email, age, gender) = person_details;
+
+    println!("{:?}, {:?}, {:?}, {:?}", name, email, age, gender);
+}
+
+// Demo Exp
+
+enum Access {
+    Admin,
+    Manager,
+    User,
+    Guest
+}
+
+fn expression() {
+    let access_level = Access::Guest;
+    let can_access_level = match access_level {
+        Access::Admin => true,
+        _ => false,
+    };
+
+    println!("{:?}", can_access_level)
+}
+
+// & key is used as a suffix to tell the program that we are borrowing the variable and please don't delete it
+
+fn test_ownership(a: &String) {
+    println!("{:?}", a);
 }
