@@ -38,8 +38,8 @@ fn main() {
     test_ownership(&string_value);
 
     let hot = Temperature { degrees_f: 99.9 };
-    show_temp(hot);
-
+    // Temperature::show_temp(hot);
+    hot.show_temp()
 }
 
 fn second_method() {
@@ -176,7 +176,7 @@ enum Access {
     Admin,
     Manager,
     User,
-    Guest
+    Guest,
 }
 
 fn expression() {
@@ -201,7 +201,10 @@ struct Temperature {
     degrees_f: f64,
 }
 
-fn show_temp(temp: Temperature) {
-    println!("{:?} degrees F", temp.degrees_f);
+impl Temperature {
+    fn show_temp(&self) {
+        println!("{:?} degrees F", self.degrees_f);
+    }
 }
-
+ 
+// Demo impl
