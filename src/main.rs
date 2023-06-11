@@ -37,6 +37,9 @@ fn main() {
     test_ownership(&string_value);
     test_ownership(&string_value);
 
+    let hot = Temperature { degrees_f: 99.9 };
+    show_temp(hot);
+
 }
 
 fn second_method() {
@@ -191,3 +194,14 @@ fn expression() {
 fn test_ownership(a: &String) {
     println!("{:?}", a);
 }
+
+// impl keyword
+
+struct Temperature {
+    degrees_f: f64,
+}
+
+fn show_temp(temp: Temperature) {
+    println!("{:?} degrees F", temp.degrees_f);
+}
+
