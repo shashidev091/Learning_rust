@@ -39,7 +39,13 @@ fn main() {
 
     let hot = Temperature { degrees_f: 99.9 };
     // Temperature::show_temp(hot);
-    hot.show_temp()
+    hot.show_temp();
+
+    let cold = Temperature::freezing();
+    cold.show_temp();
+
+    let custom_temp = Temperature::custom_temp(34.9);
+    custom_temp.show_temp();
 }
 
 fn second_method() {
@@ -202,6 +208,18 @@ struct Temperature {
 }
 
 impl Temperature {
+    fn freezing() -> Self {
+        Self {
+            degrees_f:  32.0
+        }
+    }
+
+    fn custom_temp(temp: f64) -> Self {
+        Self {
+            degrees_f:  temp
+        }
+    }
+
     fn show_temp(&self) {
         println!("{:?} degrees F", self.degrees_f);
     }
